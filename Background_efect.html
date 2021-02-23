@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    
+    .content{
+            width: 500px;
+            height: 500px;
+            display: block;
+            position:relative;
+            text-align: center;
+            margin: auto;
+        }
+        
+    button{
+            flex-direction: column;
+        }
+
+    .content .shape{
+             width: 500px;
+            height: 500px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(215, 150, 150));
+            border: solid 5px black;
+            padding: 100px;
+        }
+    
+    .shape2{
+            width: 500px;
+            height: 500px;
+            clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+            background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(215, 150, 150));
+        }
+
+    .text{
+            position: absolute;
+             top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -25px
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <button onclick="abc()">Push to changed color on text to white</button>
+        <button onclick="bcd()">Push to changed color on text to black</button>
+        <button onclick="cde()">Push to changed background shape to triangle type (setAttribute)</button> 
+        <button onclick="def()">Push to changed background shape to triange type(set syle)</button> 
+        <button onclick="efi()">Push to changed background shape to hexagon type(set syle)</button> 
+    </div>
+    
+    <div class="content" id="changed">
+         <div class="shape" id="shape">
+            <a class="text" >Iam HERE ?</a>
+         </div>
+    </div>
+    
+
+    <script>
+
+        function abc() {
+            document.getElementById("changed").style.color = "white";
+        }
+
+        function bcd() {
+            document.getElementById("changed").style.color = "black";
+        }
+
+        function cde() {
+            document.getElementsByClassName("shape")[0].setAttribute("class", "shape2");
+        }
+
+        function def() {
+            var ch1= document.getElementById("shape")
+            
+            ch1.style.clipPath="polygon(50% 0, 0% 100%, 100% 100%)"
+        }
+
+        function efi() {
+            var ch1= document.getElementById("shape")
+            
+            ch1.style.clipPath="polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)"
+        }    
+        
+
+    </script>
+
+</body>
+</html>
